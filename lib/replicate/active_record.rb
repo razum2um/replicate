@@ -272,6 +272,7 @@ module Replicate
           conditions[attribute_name] = attributes[attribute_name.to_s]
         end
         find(:first, :conditions => conditions)
+      rescue ::ActiveRecord::RecordNotFound # AR 5.0 raises
       end
 
       # Update an AR object's attributes and persist to the database without
